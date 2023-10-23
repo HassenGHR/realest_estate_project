@@ -20,7 +20,7 @@ const Listings = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://194.163.186.157:63250/api/listings/?page=1"
+          "http://184.174.36.162/api/listings/?page=1"
         );
 
         setListings(res.data.results);
@@ -40,7 +40,7 @@ const Listings = () => {
 
   const visitPage = (page) => {
     axios
-      .get(`http://194.163.186.157:63250/api/listings/?page=${page}`)
+      .get(`http://184.174.36.162/api/listings/?page=${page}`)
       .then((res) => {
         setListings(res.data.results);
         setPrevious(res.data.previous);

@@ -45,8 +45,8 @@ export const signup = ({ name, email, password, password2 }) => async dispatch =
     const body = JSON.stringify({ name, email, password, password2 }); 
 
     try {
-        const res = await axios.post("http://194.163.186.157:63250/api/accounts/signup", body, config);
-
+        const res = await axios.post("http://184.174.36.162/api/accounts/signup", body, config);
+        
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
