@@ -1,0 +1,170 @@
+:root {
+  --primaryColor: hsl(200, 100%, 50%); /* Adjust the hue value as needed */
+  --secondaryColor: hsl(192, 86%, 25%); /* Adjust the hue value as needed */
+  --gradientColor: linear-gradient(
+    45deg,
+    hsl(200, 100%, 50%),
+    hsl(10, 100%, 50%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 0%);
+  --textColor: hsl(0, 0%, 20%);
+  --whiteColorDream: hsl(0, 0%, 97%);
+  --greyText: hsl(0, 0%, 60%);
+  --inputColor: hsl(0, 0%, 94%);
+  --bodyColor: hsl(0, 0%, 96%);
+  --cardBG: hsl(0, 0%, 100%);
+}
+li {
+  list-style: none;
+}
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--whiteColorDream);
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(75, 127, 183, 0.904);
+
+  
+ .logo {
+  color: var(--blackColor);
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    font-size: 25px;
+    color: var(--primaryColor);
+    transform: translate(5px);
+  }
+}
+  
+  @media screen and (max-width: 768px) {
+    .navBar {
+      position: absolute;
+      background: var(--whiteColorDream);
+      height: max-content;
+      width: 80%;
+      border-radius: 1rem;
+      top: -500rem;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%);
+      z-index: 2000;
+      box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+      transition: 0.3s ease-in-out;
+
+      .navLists {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        padding: 0.5rem 0;
+
+        .navItem {
+          padding: 0.5rem 0;
+
+          .navLink {
+            color: var(--textColor);
+            font-size: 0.9rem;
+            font-weight: 600;
+            &:hover {
+              color: var(--primaryColor);
+            }
+          }
+        }
+        .btn {
+          margin-top: 1rem;
+
+          a {
+            font-weight: 600;
+            color: var(--whiteColor);
+          }
+        }
+      }
+      .closeNavbar {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        color: var(--primaryColor);
+        &:hover {
+          color: var(--secondaryColor);
+        }
+      }
+    }
+    .activeNavbar {
+      top: 6rem;
+    }
+  }
+
+  .toggleNavbar {
+    .icon {
+      font-size: 25px;
+      color: var(--primaryColor);
+    }
+    &:hover.icon {
+      color: var(--secondaryColor);
+    }
+  }
+}
+@media screen and (min-width: 769px) {
+  .toggleNavbar,
+  .closeNavbar {
+    display: none;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+    .navBar {
+      .navLists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        .navItem {
+          .navLink {
+            color: var(--textColor);
+            padding: 0 0.45rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            &:hover {
+              color: var(--primaryColor);
+            }
+          }
+        }
+        .btn {
+          margin-left: 1rem;
+          a {
+            color: var(--whiteColor);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .header {
+    .navBar {
+      .navLists {
+        .navItem {
+          padding: 0 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding: 1rem 8.5rem;
+  }
+}

@@ -1,0 +1,151 @@
+.listing-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  
+    // Add margin to the left and right
+    margin-left: 60px;
+    margin-right: 60px;
+  
+}
+.listingdetail {
+  padding-bottom: 4rem;
+
+  &__header {
+    background-color: rgba($color-primary, 0.45);
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 4.2rem;
+    color: $color-white;
+    margin-bottom: 2rem;
+    font-weight: 200;
+  }
+
+  &__location {
+    font-size: 2.4rem;
+    color: $color-white;
+    font-weight: 200;
+  }
+
+  &__breadcrumb {
+    background-color: $color-grey-light;
+    padding: 2rem 4rem;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+
+    &__link {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-tertiary;
+      }
+    }
+  }
+
+  &__display {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 100%; // This creates a square container (same width and height)
+    position: relative;
+
+    img {
+      object-fit: cover; // Maintain aspect ratio and cover the container
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__displayRealtor {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border: 2px solid #fff;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: 2s ease;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__realtor {
+    h3 {
+      margin-right: 10px; // Add spacing between name and icon
+    }
+
+    &__footerSocials__icon {
+      font-size: 20px;
+      color: var(--primaryColor);
+      &:hover {
+        color: var(--primaryColor); // Apply hover color if needed
+      }
+    }
+  }
+
+  &__realtor-content {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    padding-right: 1rem;
+  }
+
+  &__contact {
+    font-size: 1.6rem;
+    color: $color-tertiary;
+    padding: 1rem;
+  }
+
+  &__about {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  &__footerSocials {
+    column-gap: 0.5rem;
+    &__icon {
+      color: var(--primaryColor);
+      font-size: 20px;
+      &:hover {
+        color: var(--primaryColor);
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 2rem;
+    color: var(--primaryColor);
+
+    &__item {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.6rem;
+  }
+}

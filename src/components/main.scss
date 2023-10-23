@@ -1,0 +1,205 @@
+:root {
+  --primaryColor: hsl(200, 100%, 50%); /* Adjust the hue value as needed */
+  --secondaryColor: hsl(192, 86%, 25%); /* Adjust the hue value as needed */
+  --gradientColor: linear-gradient(
+    45deg,
+    hsl(200, 100%, 50%),
+    hsl(10, 100%, 50%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 0%);
+  --textColor: hsl(0, 0%, 20%);
+  --whiteColorDream: hsl(0, 0%, 97%);
+  --greyText: hsl(0, 0%, 60%);
+  --inputColor: hsl(0, 0%, 94%);
+  --bodyColor: hsl(0, 0%, 96%);
+  --cardBG: hsl(0, 0%, 100%);
+  --cardHover: hsl(0, 0%, 100%);
+}
+
+.main {
+  width: 100%;
+
+  .secTitle {
+    .title {
+      position: relative;
+      width: max-content;
+      color: var(--textColor);
+      margin: 1rem 0;
+      margin-left: 6rem;
+      font-size: large;
+      padding: 3rem;
+      z-index: 2;
+
+      &::after {
+        position: absolute;
+        content: "";
+        background: var(--secondaryColor);
+        height: 2px;
+        width: 120px;
+        left: 0;
+        bottom: 27px;
+        z-index: -1;
+      }
+    }
+  }
+  .secContent {
+    justify-content: center;
+    gap: 1.5rem;
+
+    .singleDestination {
+      // height: 100%;
+      display: grid;
+      row-gap: 10px;
+      border-radius: 10px;
+      align-items: center;
+      background: var(--cardBG);
+      box-shadow: 0 2px 4px rgba(140, 140, 141, 0.459);
+      overflow: hidden;
+      width: 300px;
+      height: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:hover {
+        background: var(--cardHover);
+        box-shadow: 1 4px 4px rgba(85, 85, 114, 0.459);
+        transition: 0.3s ease;
+      }
+      .imageDiv {
+        height: 180px;
+        width: 100%;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: 2s ease;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .cardInfo {
+        padding: 1rem;
+        .destTitle {
+          color: var(--blackColor);
+          font-size: 1.25rem;
+        }
+        .continent {
+          gap: 0.5rem;
+          .icon {
+            color: var(--textColor);
+            font-size: 18px;
+          }
+          .name {
+            color: var(--textColor);
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+        .fees {
+          width: 100%;
+          justify-content: space-between;
+          padding: 1rem;
+          margin: 1rem 0;
+          border-top: 1.5px solid var(--greyText);
+          border-bottom: 1.5px solid var(--greyText);
+          .grade {
+            color: var(--textColor);
+            max-width: 100px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            small {
+              text-align: center;
+              background: var(--gradientColor);
+              border-radius: 1rem;
+              color: var(--whiteColor);
+              padding: 1px 10px;
+              font-size: 10px;
+            }
+          }
+          .price {
+            font-size: 2rem;
+            color: var(--blackColor);
+          }
+        }
+        .type {
+          width: 100%;
+          justify-content: space-between;
+          padding: 1rem;
+          margin: 1rem 0;
+          // border-top: 1.5px solid var(--greyText);
+          border-bottom: 1.5px solid var(--greyText);
+          .grade {
+            color: var(--textColor);
+            max-width: 100px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            small {
+              text-align: center;
+              background: var(--gradientColor);
+              border-radius: 1rem;
+              color: var(--whiteColor);
+              padding: 1px 10px;
+              font-size: 10px;
+            }
+          }
+          .price {
+            font-size: 2rem;
+            color: var(--blackColor);
+          }
+        }
+        .desc {
+          font-size: 13.5px;
+          color: var(--textColor);
+          font-weight: 500;
+          justify-content: space-between;
+          gap: 0.5rem;
+        }
+        .btn {
+          margin-top: 1rem;
+          color: var(--whiteColor);
+          font-weight: 600;
+          justify-content: space-between;
+          gap: 0.5rem;
+
+          .icon {
+            align-items: center;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+    &::after {
+      width: 155px !important;
+    }
+  }
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+    .singleDestination {
+      height: auto;
+    }
+  }
+
+  @media screen and (min-width: 840px) {
+    .secContent {
+      grid-template-columns: repeat(3, 1fr);
+      .singleDestination {
+        height: auto;
+      }
+    }
+  }
+}
