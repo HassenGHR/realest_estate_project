@@ -40,7 +40,7 @@ const Listings = () => {
 
   const visitPage = (page) => {
     axios
-      .get(`http://184.174.36.162/api/listings/?page=${page}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/listings/?page=${page}`)
       .then((res) => {
         setListings(res.data.results);
         setPrevious(res.data.previous);

@@ -22,7 +22,7 @@ const ListingDetail = ({ match }) => {
         };
 
         const listingResponse = await axios.get(
-          `http://184.174.36.162/api/listings/${slug}`,
+          `${process.env.REACT_APP_API_URL}/api/listings/${slug}`,
           config
         );
         setListing(listingResponse.data);
@@ -30,7 +30,7 @@ const ListingDetail = ({ match }) => {
 
         if (listingResponse.data.realtor) {
           const realtorResponse = await axios.get(
-            `http://184.174.36.162/api/realtors/${listingResponse.data.realtor}`,
+            `${process.env.REACT_APP_API_URL}/api/realtors/${listingResponse.data.realtor}`,
             config
           );
           setRealtor(realtorResponse.data);

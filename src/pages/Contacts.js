@@ -35,7 +35,7 @@ const Contact = ({ setAlert }) => {
 
     setLoading(true);
     axios
-      .post('http://184.174.36.162/api/contacts/', { name, email, subject, message }, config)
+      .post(`${process.env.REACT_APP_API_URL}/api/contacts/`, { name, email, subject, message }, config)
       .then((res) => {
         setAlert('Message Sent', 'success');
         setLoading(false);
