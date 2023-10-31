@@ -20,7 +20,7 @@ const Listings = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://184.174.36.162/api/listings/?page=1"
+          `${process.env.REACT_APP_API_URL}/api/listings/?page=1`
         );
 
         setListings(res.data.results);
