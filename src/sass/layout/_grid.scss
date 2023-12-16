@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between; /* Adjust alignment as needed */
   margin-bottom: 20px;
+  padding-left: 2rem;
   gap: 2rem;
 
   @include respond(big-desktop) {

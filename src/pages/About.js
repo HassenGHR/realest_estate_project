@@ -54,9 +54,12 @@ const About = () => {
         realtors.map(realtor => {
             return allRealtors.push(
                 <Fragment key={realtor.id}>
+                    
                     <div className='about__display'>
                         <img className='about__display__image' src={realtor.photo} alt='' />
                     </div>
+                   
+
                     <h3 className='about__realtor'>{realtor.name}</h3>
                     <p className='about__contact'>{realtor.phone}</p>
                     <p className='about__contact'>{realtor.email}</p>
@@ -72,24 +75,34 @@ const About = () => {
 
     const getTopSeller = () => {
         let result = [];
-
-        topSeller.map(seller => {
-            return result.push(
-                <Fragment key={seller.id}>
-                    <div className='about__display'>
-                        <img className='about__display__image' src={seller.photo} alt='' />
-                    </div>
-                    <h3 className='about__topseller'>Top Seller:</h3>
-                    <p className='about__realtor'>{seller.name}</p>
-                    <p className='about__contact'>{seller.phone}</p>
-                    <p className='about__contact'>{seller.email}</p>
-                    <p className='about__about'>{seller.description}</p>
-                </Fragment>
+        let uniqueNames = new Set();
+      
+        topSeller.forEach((seller) => {
+          // Check if the name is not already in the Set
+          if (!uniqueNames.has(seller.name)) {
+            result.push(
+              <Fragment key={seller.id}>
+                <div className='about__seller'>
+                  <div className='about__display'>
+                    <img className='about__display__image' src={seller.photo} alt='' />
+                  </div>
+                  <h3 className='about__topseller'>Top Seller:</h3>
+                  <p className='about__realtor'>{seller.name}</p>
+                  <p className='about__contact'>{seller.phone}</p>
+                  <p className='about__contact'>{seller.email}</p>
+                  <p className='about__about'>{seller.description}</p>
+                </div>
+              </Fragment>
             );
+      
+            // Add the name to the Set to track uniqueness
+            uniqueNames.add(seller.name);
+          }
         });
-
+      
         return result;
-    };
+      };
+      
 
     return (
         <main className='about'>
@@ -130,11 +143,13 @@ const About = () => {
                 </div>
             </section>
             <section className='about__team'>
-                <div className='row'>
+                <div className='about__heading'>
                     <h2 className='about__subheading'>Meet out best Sellers!</h2>
                 </div>
-                {/* <div className='col-1-of-4'> */}
+                <div className='about__container'>
                 {getTopSeller()}
+    </div>
+                
                     {/* </div> */}
                
             </section>

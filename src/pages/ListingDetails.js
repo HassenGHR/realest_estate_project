@@ -72,7 +72,12 @@ const ListingDetail = ({ match }) => {
       <div className="listingdetail__header">
         <h1 className="listingdetail__title">{listing.title}</h1>
         <p className="listingdetail__location">
-          {listing.city}, {listing.state}
+          {listing.city === "none" || listing.city === "N/A"
+            ? ""
+            : listing.city + " ,"}{" "}
+          {listing.state === "none" || listing.state === "N/A"
+            ? ""
+            : listing.state}
         </p>
       </div>
       <div className="row">
@@ -83,6 +88,7 @@ const ListingDetail = ({ match }) => {
           / {listing.title}
         </div>
       </div>
+      <div></div>
       <div className="row">
         <div className="col-3-of-4">
           <div className="listingdetail__display">
@@ -113,26 +119,69 @@ const ListingDetail = ({ match }) => {
               </a>{" "}
             </div>
           </div>
-          <p className="listingdetail__contact">{realtor.phone}</p>
+          <p className="listingdetail__contact">
+            Phone:{" "}
+            {realtor.phone === "none" || realtor.phone === "N/A"
+              ? ""
+              : realtor.phone}
+          </p>
 
-          <p className="listingdetail__about">{realtor.description}</p>
-        </div>
-      </div>
-
-      <div className="listing-card">
-        <div className="row">
-          <div className="col-1-of-2">
-            <ul className="listingdetail__list">
-              <li className="listingdetail__list__item">
-                Home Type: {listing.home_type}
-              </li>
-              <li className="listingdetail__list__item">
-                Sale Type: {listing.sale_type}
-              </li>
-              <li className="listingdetail__list__item">Price: da {price}</li>
-            </ul>
-          </div>
-          <div className="col-1-of-2">
+          <p className="listingdetail__about">
+            {realtor.description === "none" || realtor.description === "N/A"
+              ? ""
+              : realtor.description}
+          </p>
+          <div className="row">
+            <div className="col-1-of-2">
+              <ul className="listingdetail__list">
+                <li className="listingdetail__list__item">
+                  Home Type:{" "}
+                  {listing.home_type === "none" || listing.home_type === "N/A"
+                    ? ""
+                    : listing.home_type}
+                </li>
+                <li className="listingdetail__list__item">
+                  Sale Type:{" "}
+                  {listing.sale_type === "none" || listing.sale_type === "N/A"
+                    ? ""
+                    : listing.sale_type}
+                </li>
+                <li className="listingdetail__list__item">
+                  Price:{" "}
+                  {price === "1" || price === "0"
+                    ? "Contact the Realtor"
+                    : `da ${price}`}
+                </li>
+                <li className="listingdetail__list__item">
+                  Address:{" "}
+                  {listing.address === "none" || listing.address === "N/A"
+                    ? ""
+                    : listing.address}
+                </li>
+                <li className="listingdetail__list__item">
+                  City:{" "}
+                  {listing.city === "none" || listing.city === "N/A"
+                    ? ""
+                    : listing.city}
+                </li>
+                <li className="listingdetail__list__item">
+                  State:{" "}
+                  {listing.state === "none" || listing.state === "N/A"
+                    ? ""
+                    : listing.state}
+                </li>
+                <ul className="listingdetail__list">
+                  <li className="listingdetail__list__item">
+                    More Info:{" "}
+                    {listing.description === "none" ||
+                    listing.description === "N/A"
+                      ? ""
+                      : listing.description}
+                  </li>
+                </ul>
+              </ul>
+            </div>
+            {/* <div className="col-1-of-2">
             <ul className="listingdetail__list">
               <li className="listingdetail__list__item">
                 Address: {listing.address}
@@ -144,13 +193,9 @@ const ListingDetail = ({ match }) => {
                 State: {listing.state}
               </li>
             </ul>
+          </div> */}
           </div>
         </div>
-        <ul className="listingdetail__list">
-          <li className="listingdetail__list__item">
-            More Info: {listing.description}
-          </li>
-        </ul>
       </div>
 
       <div className="row">{displayInteriorImages()}</div>
