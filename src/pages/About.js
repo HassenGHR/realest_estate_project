@@ -5,7 +5,6 @@ import House from '../assets/images/house.jpg';
 
 const About = () => {
     const [topSeller, setTopSeller] = useState([]);
-    const [realtors, setRealtors] = useState([]);
 
     useEffect(() => {
         const config = {
@@ -27,51 +26,27 @@ const About = () => {
         getTopSeller();
     }, []);
 
-    useEffect(() => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+    // useEffect(() => {
+    //     const config = {
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     };
 
-        const getRealtors = async () => {
-            try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/realtors/`, config);
-                setRealtors(res.data);
-            }
-            catch (err) {
+    //     const getRealtors = async () => {
+    //         try {
+    //             const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/realtors/`, config);
+    //             setRealtors(res.data);
+    //         }
+    //         catch (err) {
 
-            }
-        };
+    //         }
+    //     };
 
-        getRealtors();
-    }, []);
+    //     getRealtors();
+    // }, []);
 
-    const getAllRealtors = () => {
-        let allRealtors = [];
-        let results = [];
-
-        realtors.map(realtor => {
-            return allRealtors.push(
-                <Fragment key={realtor.id}>
-                    
-                    <div className='about__display'>
-                        <img className='about__display__image' src={realtor.photo} alt='' />
-                    </div>
-                   
-
-                    <h3 className='about__realtor'>{realtor.name}</h3>
-                    <p className='about__contact'>{realtor.phone}</p>
-                    <p className='about__contact'>{realtor.email}</p>
-                    <p className='about__about'>{realtor.description}</p>
-                </Fragment>
-            );
-        });
-
-        
-
-        return results;
-    };  
+    
 
     const getTopSeller = () => {
         let result = [];
